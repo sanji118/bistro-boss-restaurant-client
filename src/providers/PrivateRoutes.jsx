@@ -1,8 +1,18 @@
-import React from 'react'
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../hook/useAuth'
 
-const PrivateRoutes = () => {
+const PrivateRoutes = ({children}) => {
+    const {user, loading} = useAuth();
+    if(loading){
+        return <span className='loading loading-spinner loading-md'></span>
+    }
+    if(user){
+        return children;
+    }
+
+
   return (
-    <div>PrivateRoutes</div>
+    <Navigate to={'/auth/login'}></Navigate>
   )
 }
 

@@ -1,11 +1,65 @@
-import bgPhoto from '../assets/others/authentication.png';
+import { Link } from 'react-router-dom';
+import { FaGoogle, FaFacebookF, FaGithub } from 'react-icons/fa';
+import authSideImage from '../assets/others/authentication1.png';
+import bgImage from '../assets/others/authentication.png';
 
 const Login = () => {
   return (
-    <div className={`bg-[url(${bgPhoto})] bg-no-repeat`}>
-        
-    </div>
-  )
-}
+    <div
+      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="p-6 rounded-lg shadow-lg w-full max-w-5xl flex flex-col md:flex-row items-center justify-between">
+      
+        <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
+          <img src={authSideImage} alt="Side Illustration" className="w-4/5" />
+        </div>
 
-export default Login
+       
+        <div className="w-full md:w-1/2 px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">Login</h2>
+          <form className="space-y-4">
+            <div>
+              <label className="label font-semibold text-gray-800 py-2">Email</label>
+              <input type="email" placeholder="Type here" className="input w-full rounded-lg bg-white" />
+            </div>
+            <div>
+              <label className="label font-semibold text-gray-800 py-2">Password</label>
+              <input type="password" placeholder="Enter your password" className="input  w-full rounded-lg bg-white" />
+            </div>
+            <div>
+              <div className="">
+                <input type="text" placeholder="Captcha" className="input w-full mr-2 rounded-lg bg-white my-2" />
+                <button type="button" className="text-blue-600 hover:underline py-2 font-semibold">Reload Captcha</button>
+              </div>
+            </div>
+            <button className="btn bg-[#D1A054B3] hover:bg-[#c89f62b3] text-white w-full rounded-lg border-none">Sign In</button>
+          </form>
+
+          <p className="mt-4 text-center text-sm text-[#D1A054B3]">
+            New here?{' '}
+            <Link to="/register" className="text-[#D1A054B3] hover:underline font-semibold">
+              Create a New Account
+            </Link>
+          </p>
+
+          <div className="divider">Or sign in with</div>
+
+          <div className="flex justify-center gap-4">
+            <button className="border p-2 rounded-full bg-gray-200">
+              <FaGoogle />
+            </button>
+            <button className="border p-2 rounded-full bg-gray-200">
+              <FaFacebookF />
+            </button>
+            <button className="border p-2 rounded-full bg-gray-200">
+              <FaGithub />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

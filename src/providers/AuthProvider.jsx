@@ -1,7 +1,6 @@
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { createContext, useEffect, useState } from "react"
-import auth from "../firebase.init";
-import { Currency } from "lucide-react";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
+import { auth } from "../firebase.init";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();

@@ -9,7 +9,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <footer class=" text-white">
+    <footer className=" text-white">
         <div className="footer sm:footer-horizontal gap-0">
             <div className=" p-10 bg-gray-700 w-full flex justify-around">
                 <nav>

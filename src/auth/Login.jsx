@@ -1,8 +1,10 @@
-import React from 'react'
+import bgPhoto from '../assets/others/authentication.png';
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className={`bg-[url(${bgPhoto})] bg-no-repeat`}>
+        
+    </div>
   )
 }
 

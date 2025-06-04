@@ -31,19 +31,19 @@ const Register = () => {
         })
     }
 
-    const handleGoogleSignIn = ()=>{
+    const handleGoogleSignUp = ()=>{
         signInGoogle()
         .then(()=>{
             navigate('/')
-            toast.success('Successfully Signed in with Google.')
+            toast.success('Successfully Signed up with Google.')
         })
     }
 
-    const handleGithubSignIn = ()=>{
+    const handleGithubSignUp = ()=>{
         signInGithub()
         .then(()=>{
             navigate('/');
-            toast.success('Successfully Signed in with Github.')
+            toast.success('Successfully Signed up with Github.')
         })
     }
 
@@ -84,13 +84,13 @@ const Register = () => {
           <div className="divider text-xl font-medium my-5">Or sign up with</div>
 
           <div className="flex justify-center gap-10 py-3">
-            <button onClick={handleGoogleSignIn} className="border p-2 rounded-full bg-gray-200">
+            <button onClick={handleGoogleSignUp} className="border p-2 rounded-full bg-gray-200">
               <FaGoogle />
             </button>
             <button className="border p-2 rounded-full bg-gray-200">
               <FaFacebookF />
             </button>
-            <button onClick={handleGithubSignIn} className="border p-2 rounded-full bg-gray-200">
+            <button onClick={handleGithubSignUp} className="border p-2 rounded-full bg-gray-200">
               <FaGithub />
             </button>
           </div>

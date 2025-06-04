@@ -1,18 +1,46 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF, FaGithub } from 'react-icons/fa';
 import authSideImage from '../assets/others/authentication1.png';
 import bgImage from '../assets/others/authentication.png';
 import { useAuth } from '../hook/useAuth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-    const {user} = useAuth();
+    const {user, signIn, signInGithub, signInGoogle} = useAuth();
+    const navigate = useNavigate();
     const handleLogin = e =>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email, password)
+        .then(()=>{
+            navigate('/');
+            toast.success('Logged in successfully!')
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
     }
+
+    const handleGoogleSignIn = ()=>{
+        signInGoogle()
+        .then(()=>{
+            navigate('/')
+            toast.success('Successfully Signed in with Google.')
+        })
+    }
+
+    const handleGithubSignIn = ()=>{
+        signInGithub()
+        .then(()=>{
+            navigate('/');
+            toast.success('Successfully Signed in with Github.')
+        })
+    }
+
+
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
@@ -55,13 +83,13 @@ const Login = () => {
           <div className="divider text-xl font-medium mt-8">Or sign in with</div>
 
           <div className="flex justify-center gap-10 py-6">
-            <button className="border p-2 rounded-full bg-gray-200">
+            <button onClick={handleGoogleSignIn} className="border p-2 rounded-full bg-gray-200">
               <FaGoogle />
             </button>
             <button className="border p-2 rounded-full bg-gray-200">
               <FaFacebookF />
             </button>
-            <button className="border p-2 rounded-full bg-gray-200">
+            <button onClick={handleGithubSignIn} className="border p-2 rounded-full bg-gray-200">
               <FaGithub />
             </button>
           </div>

@@ -3,8 +3,4 @@
   themes: light --default, dark --prefersdark, cupcake;
 }
 
-.auth-bg {
-  background-image: url('../assets/others/authentication.png');
-  background-size: cover;
-  background-position: center;
-}
+

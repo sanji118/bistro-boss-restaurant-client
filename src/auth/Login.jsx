@@ -17,7 +17,7 @@ const Login = () => {
 
        
         <div className="w-full md:w-1/2 px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-center">Login</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-center">Login</h2>
           <form className="space-y-4">
             <div>
               <label className="label font-semibold text-gray-800 py-2">Email</label>
@@ -36,16 +36,16 @@ const Login = () => {
             <button className="btn bg-[#D1A054B3] hover:bg-[#c89f62b3] text-white w-full rounded-lg border-none">Sign In</button>
           </form>
 
-          <p className="mt-4 text-center text-sm text-[#D1A054B3]">
+          <p className="mt-4 text-center text-[#D1A054] text-xl font-semibold">
             New here?{' '}
-            <Link to="/register" className="text-[#D1A054B3] hover:underline font-semibold">
+            <Link to="/auth/register" className="text-[#D1A054] text-xl font-bold ">
               Create a New Account
             </Link>
           </p>
 
-          <div className="divider">Or sign in with</div>
+          <div className="divider text-xl font-medium mt-8">Or sign in with</div>
 
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-10 py-6">
             <button className="border p-2 rounded-full bg-gray-200">
               <FaGoogle />
             </button>

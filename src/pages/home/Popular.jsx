@@ -1,24 +1,9 @@
-
 import SectionTitle from '../../components/SectionTitle'
 import MenuFoodCard from '../../components/cards/MenuFoodCard'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { getMenu } from '../../utils/useMenu'
 import { Link } from 'react-router-dom'
 
-const PopularMenu = () => {
-    const queryClient = useQueryClient();
-
-    const {
-        data: menu = [],
-        isLoading,
-        error
-    } = useQuery({
-        queryKey: ['apartments'],
-        queryFn: getMenu
-    })
-    const filteredMenu = menu.filter(menuItem=> menuItem.category === 'popular');
-    console.log(filteredMenu.length)
-    
+const PopularMenu = ({popularMenu}) => {
+    const slicedMenu = popularMenu.slice(0,6)
   return (
     <div className='my-10'>
         <div>
@@ -26,7 +11,7 @@ const PopularMenu = () => {
         </div>
         <div className='grid md:grid-cols-2 gap-6 py-10 px-5 lg:px-0'>
             {
-                filteredMenu.map(menuItem =>(
+                slicedMenu.map(menuItem =>(
                     <MenuFoodCard key={menuItem._id} menuItem={menuItem} />
                 ))
             }

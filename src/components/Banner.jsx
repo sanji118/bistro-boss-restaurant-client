@@ -11,12 +11,11 @@ import img6 from '../assets/home/06.png';
 const Banner = () => {
     const bannerImages = [img1, img2, img3, img4, img5, img6]
   return (
-    <Carousel>
+    <Carousel autoPlay={true} infiniteLoop={true}  >
         {
             bannerImages.map((image, index)=>(
                 <div key={index}>
                     <img src={image}  />
-                    <p className="legend">Legend {index+1}</p>
                 </div>
             ))
         }

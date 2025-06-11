@@ -1,4 +1,4 @@
-import React from 'react'
+
 import SectionTitle from '../../components/SectionTitle'
 import FoodCard from '../../components/cards/FoodCard'
 
